@@ -23,7 +23,7 @@ def main():
     args_parser.add_argument("--host", required=True, help="Хост")
     args_parser.add_argument("--port", required=True, help="Порт")
     args_parser.add_argument("--query", required=True, help="SQL-запрос для выполнения")
-    args_parser.add_argument("--params", nargs='*', help="Параметры дял SQL-запроса")
+    args_parser.add_argument("--params", nargs='*', help="Параметры для SQL-запроса")
     args_parser.add_argument("--output", required=True, help="Путь к выходному JSON-файлу")
 
     args = args_parser.parse_args()
@@ -38,7 +38,7 @@ def main():
         "port":args.port,
     }
 
-    query_params = tuple(args.params) if args else ()
+    query_params = tuple(args.params) if args.params else ()
     data = get_data_from_db(query=args.query, params=query_params, connection_params=connection_params)
     if data:
         save_data_to_json(data=data, file_path=args.output)
