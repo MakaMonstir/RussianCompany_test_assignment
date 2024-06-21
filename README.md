@@ -1,6 +1,6 @@
 # PostgreSQL to JSON Exporter
 
-Этот проект позволяет выгружать данные из базы данных PostgreSQL в JSON файлы, используя Python. Скрипт включает в себя использование контекстных менеджеров для подключения и выполнения запросов, а также функции для сохранения данных в JSON файл.
+Этот проект позволяет выгружать данные из базы данных PostgreSQL в JSON файлы, используя Python и библиотеку psycopg2. Скрипт включает в себя использование контекстных менеджеров для подключения и выполнения запросов, а также функции для сохранения данных в JSON файл.
 (Проект разработан в рамках тестового здания)
 
 ## Установка
@@ -13,24 +13,26 @@
    ```
 
 2. Создайте виртуальное окружение и активируйте его:
+
    ```sh
    python -m venv venv
-   myenv\Scripts\activate # Для Linux/MacOS: source myenv/bin/activate 
+   myenv\Scripts\activate # Для Linux/MacOS: source myenv/bin/activate
    ```
 
 3. Установка зависимостей:
-   ```sh 
-   pip install --upgrade pip && pip install -r requirements.txt 
+   ```sh
+   pip install --upgrade pip && pip install -r requirements.txt
    ```
 
 ## Использование
 
-   Для запуска скрипта используйте команду:
-   ```sh
-   python main.py --dbname your_db_name --user your_username --password your_password --host your_host --port your_port --query "SELECT * FROM your_table WHERE column_name = %s" --params values --output output.json
-   ```
+Для запуска скрипта используйте команду:
 
-   Параметры:
+```sh
+python main.py --dbname your_db_name --user your_username --password your_password --host your_host --port your_port --query "SELECT * FROM your_table WHERE column_name = %s" --params values --output output.json
+```
+
+Параметры:
 
     --dbname: Имя базы данных
     --user: Имя пользователя
