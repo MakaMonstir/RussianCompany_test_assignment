@@ -23,7 +23,7 @@ def default_serializer(object: Optional[date|Decimal]) -> str:
     Сериализатор для объектов с поддержкой типов, не встроенных в json сериализатор.
     """
     if isinstance(object, date):
-        return object.strftime("%m/%d/%Y, %H:%M:%S")
+        return object.strftime("%d/%m/%Y, %H:%M:%S")
     
     if isinstance(object, Decimal):
         return float(object)
